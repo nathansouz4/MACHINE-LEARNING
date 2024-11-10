@@ -12,7 +12,7 @@ The repository is structured with separate branches for each task and assignment
 
 ### Current Branches
 - `main`: This branch includes the general course information and links to other specific task branches.
-- `task_1`: [Task 1 - Video Summaries of Designing Machine Learning Systems](https://github.com/username/repository/tree/task_1)
+- `task_1`: [Task 1 - Video Summaries of Designing Machine Learning Systems](https://github.com/nathansouz4/MACHINE-LEARNING/tree/task_1)
 
 ## Task 1: Video Summaries
 
@@ -20,7 +20,7 @@ In the `task_1` branch, you will find a series of five video summaries. Each vid
 
 Additionally, this branch includes markdown files that provide a written summary of the key concepts and lessons learned from each chapter.
 
-### [Go to Task 1](https://github.com/username/repository/tree/task_1)
+### [Go to Task 1](https://github.com/nathansouz4/MACHINE-LEARNING/tree/task_1)
 
 ## About This Course
 
