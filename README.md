@@ -34,4 +34,4 @@ For those interested in a deeper exploration of the topics discussed in the vide
 
 ---
 
-Return to [Main README](https://github.com/username/repository)
+Return to [Main README](https://github.com/nathansouz4/MACHINE-LEARNING/tree/main)
