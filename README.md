@@ -1,60 +1,65 @@
-# PPGEEC2318-Machine Learning Course Repository
+# Explorando Técnicas de Otimização e Agendamento de Taxa de Aprendizado no Dataset MNIST
 
-### Student: Nathan Souza de Oliveira
+## Sobre o Projeto
 
-This repository is part of my coursework for the Machine Learning course in my post-graduation program in Computer Engineering, with an emphasis on Intelligence Process of Information, at UFRN (Federal University of Rio Grande do Norte).
-
-Here, you will find various tasks and assignments related to the course, each organized within its respective branch.
+Este projeto explora diferentes técnicas de otimização (SGD, Momentum, Adam) e agendamento de taxa de aprendizado (StepLR, ExponentialLR, CyclicLR) aplicadas a uma Rede Neural Convolucional (CNN) treinada no dataset MNIST, um conjunto de dados clássico para classificação de dígitos escritos à mão.
 
 ---
 
-## Repository Organization
+## Requisitos
 
-The repository is structured with separate branches for each task and assignment from the Machine Learning course. This organization helps maintain a clean and structured repository, where each branch is dedicated to a specific piece of coursework.
+Antes de executar o projeto, certifique-se de ter os seguintes itens instalados:
 
-### Current Branches
-- `main`: This branch includes the general course information and links to other specific task branches.
-- `task_1`: [Task 1 - Video Summaries of Designing Machine Learning Systems](https://github.com/nathansouz4/MACHINE-LEARNING/tree/task_1)
+1. **Python 3.7 ou superior**
+2. **Bibliotecas Python:**
+   - `torch`
+   - `torchvision`
+   - `matplotlib`
+   - `numpy`
 
----
+Instale as bibliotecas necessárias com o comando:
+```bash
+pip install torch torchvision matplotlib numpy
+```
 
-## Task 1: Video Summaries
+## Estrutura Geral do Projeto
+### Preprocessamento do Dataset MNIST
+- Carrega o dataset MNIST com torchvision.datasets.MNIST.
+- Aplica transformações para converter imagens em tensores e normalizá-las.
+- Cria DataLoaders para train e test, definindo batch_size e shuffle.
 
-In the `task_1` branch, you will find a series of five video summaries. Each video is a concise 5-minute explanation covering the key points of the first five chapters of the book "**Designing Machine Learning Systems**" by Chip Huyen.
+### Definição do Modelo CNN
 
-Additionally, this branch includes markdown files that provide a written summary of the key concepts and lessons learned from each chapter.
+- Modelo SimpleCNN, composto por camadas de convolução, pooling e camadas totalmente conectadas para classificação.
+- Utiliza camada de dropout para regularização e função de ativação ReLU.
 
-### [Go to Task 1](https://github.com/nathansouz4/MACHINE-LEARNING/tree/task_1)
+### Classe de Treinamento (StepByStep)
 
----
+- Encapsula todo o processo de forward, backward e optimizer.step().
+Permite setar:
+- Scheduler para ajuste dinâmico do learning rate.
+- Loaders de treino e validação.
+-Armazena métricas de perda (loss) e acurácia para análise posterior.
 
-## Task 2: Technical Notes about Hooks in PyTorch
+### Treinamento e Avaliação com Otimizadores (SGD + Momentum)
 
-In the `task_2` branch, you will find technical notes and examples about **PyTorch Hooks**. This task explores the usage of forward and backward hooks on CNN layers to capture and analyze intermediate features or gradients. These hooks facilitate:
-- Debugging and understanding internal representations of the network;
-- Visualizing activation maps or gradient flows;
-- Enhancing explainability of CNN-based architectures.
+- Define otimizador optim.SGD com momentum.
+Configura a classe StepByStep passando modelo, função de perda (CrossEntropyLoss), otimizador e dispositivo (CPU/GPU).
+- Executa o treinamento por um número definido de épocas e registra a perda e acurácia.
 
-You can also find a Medium article elaborating on these concepts:
+### Aplicação de Schedulers de Learning Rate
 
-### [Go to Task 2](https://n4thansouza.medium.com/explorando-cnns-com-hooks-no-pytorch-a6dda8ed8bb1)
+- Testa o otimizador Adam com um scheduler (StepLR), que reduz a taxa de aprendizado em determinados steps.
+- Ajusta e observa o comportamento do treinamento (perda e acurácia) ao longo das épocas.
 
----
+### Visualização de Resultados
 
-## Task 3: Technical Notes about Learning Rate Schedulers and Optimizers
+- São plotados gráficos de perda e acurácia para comparar diferentes estratégias:
+- SGD x Adam
+- StepLR x ExponentialLR x CyclicLR
+- Permite verificar como cada otimização e scheduler afeta a curva de aprendizado e a performance no conjunto de validação.
 
-In the `task_3` branch (to be finalized), you will find an in-depth exploration of **optimizers** (e.g., SGD, Adam, Momentum, Nesterov) and **learning rate schedulers** (e.g., StepLR, ExponentialLR, CyclicLR) in PyTorch. This task covers:
-- How exponentially weighted moving averages (EWMA) are applied to gradients (e.g., Adam);
-- Comparisons between adaptive optimizers and classic SGD with momentum/Nesterov momentum;
-- Practical examples demonstrating how different schedulers adjust the learning rate to improve convergence and avoid overfitting;
-- Integration of these strategies in a CNN training pipeline, including visualizations of loss curves and gradient behaviors.
+### Aplicação de Diferentes Learning Rate Schedulers
 
-A Medium article detailing these notes and experiments is forthcoming:
-
-### [Go to Task 3](#)
-
----
-
-## About This Course
-
-The Machine Learning course is an integral part of the Computer Engineering program, tailored to deepen the understanding of intelligent information processing systems. Through hands-on tasks and comprehensive assignments, students gain both practical and theoretical knowledge crucial for advancing in the field of Computer Engineering with a focus on machine learning and information processing.
+- Compara StepLR, ExponentialLR e CyclicLR, exibindo a evolução de loss e accuracy durante o treinamento.
+- Demonstra as vantagens e desvantagens de cada agendamento de taxa de aprendizado.
