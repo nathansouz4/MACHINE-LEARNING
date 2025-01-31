@@ -69,4 +69,5 @@ Em geral, cada arquitetura apresenta vantagens e desvantagens:
 ### **Artigo no Medium**
 
 Para uma explicação mais detalhada do projeto, incluindo contexto, metodologia e análise aprofundada dos resultados, confira o artigo publicado no Medium.
+
 🔗 Acesse o artigo completo clicando **[aqui](https://n4thansouza.medium.com/transfer-learning-an%C3%A1lise-de-desempenho-resnet18-x-vgg16-b774881089e8)**.
