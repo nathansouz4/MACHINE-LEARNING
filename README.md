@@ -64,3 +64,9 @@ Em geral, cada arquitetura apresenta vantagens e desvantagens:
 - **Simonyan, K., & Zisserman, A. (2014).** *Very Deep Convolutional Networks for Large-Scale Image Recognition.* arXiv preprint arXiv:1409.1556.  
 - **Godoy, D. V. (2021).** *Deep Learning with PyTorch Step by Step.* (Capítulo 7 aborda Transfer Learning)  
 - **Kaggle:** [Intel Image Classification](https://www.kaggle.com/datasets/puneet6060/intel-image-classification)  
+
+---
+### **Artigo no Medium**
+
+Para uma explicação mais detalhada do projeto, incluindo contexto, metodologia e análise aprofundada dos resultados, confira o artigo publicado no Medium.
+🔗 Acesse o artigo completo clicando **[aqui](https://n4thansouza.medium.com/transfer-learning-an%C3%A1lise-de-desempenho-resnet18-x-vgg16-b774881089e8)**.
